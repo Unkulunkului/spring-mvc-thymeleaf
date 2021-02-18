@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Authorization</title>
+</head>
+<body>
+<form action="#" th:action="@{authorization}" th:object="${ModelAttribute}" method="post">
+    <label>Login</label>
+    <br>
+    <input type="text" th:field="*{login}" />
+    <p th:if="${#fields.hasErrors('login')}" th:errors="*{login}"></p>
+    <br>
+    <label>Password</label>
+    <br>
+    <input type="password" th:field="*{password}" />
+    <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
+    <br>
+    <br>
+    <button>Sing in</button>
+</form>
+<p th:text="${incorrectInput}"></p>
+</body>
+</html>

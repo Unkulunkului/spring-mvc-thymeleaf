@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+<div th:if="${session.isGuest}">
+    <p>Hi, guest!</p>
+    <p>Please select an option</p>
+    <ol>
+        <li><a th:href="@{/user/authorization}">Authorization</a></li>
+        <li><a th:href="@{/user/registration}">Registration</a></li>
+    </ol>
+</div>
+<div th:if="${session.isUser}">
+    <p th:text ="'Hi, '+${session.user.name}"></p>
+    <p>Please select an option</p>
+    <ol>
+        <li><a th:href="@{/calculator}">Calculator</a></li>
+        <li><a th:href="@{/user/logout}">LogOut</a></li>
+    </ol>
+</div>
+</body>
+</html>

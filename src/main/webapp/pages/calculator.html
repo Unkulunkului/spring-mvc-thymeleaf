@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+</head>
+<body>
+<form action="#" th:action="@{calculator}" th:object="${ModelAttributeOperation}" method="post">
+    <label>First number</label>
+    <br>
+    <input type="text" th:field="*{fNum}" />
+    <p th:if="${#fields.hasErrors('fNum')}" th:errors="*{fNum}"></p>
+    <br>
+    <label>Second number</label>
+    <br>
+    <input type="text" th:field="*{sNum}" />
+    <p th:if="${#fields.hasErrors('sNum')}" th:errors="*{sNum}"></p>
+    <br>
+    <label>Operation</label>
+    <br>
+    <input type="text" th:field="*{operation}" />
+    <p th:if="${#fields.hasErrors('operation')}" th:errors="*{operation}"></p>
+    <br>
+    <br>
+    <button>Calculate</button>
+</form>
+<div th:if="${result != null}">
+    <p th:text="'Result: '+${result}"></p>
+</div>
+<br>
+<a th:href="@{/calc/history}">Calculator history</a>
+<br>
+<a th:href="@{/}">Home page</a>
+</body>
+</html>
