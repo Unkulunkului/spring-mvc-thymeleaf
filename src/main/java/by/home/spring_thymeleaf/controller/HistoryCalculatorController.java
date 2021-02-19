@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
-@RequestMapping(path = "/calc/history")
+@RequestMapping(path = "/calculator/history")
 public class HistoryCalculatorController {
     @GetMapping
     public ModelAndView getHistoryPage(ModelAndView modelAndView, HttpSession httpSession){

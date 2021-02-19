@@ -6,11 +6,15 @@
     <title>Calculator history</title>
 </head>
 <body>
-<p>Calculator history:</p>
-<ol>
-    <tr th:each="operation : ${calculatorHistory}">
-        <li th:text="${operation}"></li>
-    </tr>
-</ol>
+<html th:include="_header"/>
+<div class="uk-position-left-top uk-overlay uk-overlay-default">
+    <h3 style="color: cadetblue">Calculator history:</h3>
+    <br>
+    <ol>
+        <tr th:each="operation : ${calculatorHistory}">
+            <li th:text="' '+${operation}"></li>
+        </tr>
+    </ol>
+</div>
 </body>
 </html>

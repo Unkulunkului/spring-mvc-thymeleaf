@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.16/dist/css/uikit.min.css"/>
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.6.16/dist/js/uikit.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.6.16/dist/js/uikit-icons.min.js"></script>
+<nav class="uk-navbar-container uk-margin" uk-navbar>
+    <div class="uk-navbar-center">
+        <div class="uk-navbar-center-left" th:if="${session.isGuest}"><div>
+            <ul class="uk-navbar-nav">
+                <li><a href="/user/authorization">Sing in</a></li>
+                <li><a href="/user/registration">Sing up</a></li>
+            </ul>
+        </div></div>
+        <a class="uk-navbar-item uk-logo" href="/">
+            <span style="color: cadetblue" class="uk-icon-link" uk-icon="icon: home"></span>
+        </a>
+        <div class="uk-navbar-center-right" th:if="${session.isUser}"><div>
+            <ul class="uk-navbar-nav">
+                <li>
+                    <a href="/">Account</a>
+                    <div class="uk-navbar-dropdown">
+                        <ul class="uk-nav uk-navbar-dropdown-nav">
+                            <li class="uk-active" th:text="'Hi, '+${session.user.name}"></li>
+                            <br>
+                            <li><a href="/calculator">Calculator</a>
+                                <div uk-dropdown="pos: right-center">
+                                    <ul class="uk-nav uk-dropdown-nav">
+                                        <li><a href="/calculator/history">Calculator history</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li><a href="/user/logout">LogOut</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div></div>
+    </div>
+</nav>
+</body>
+</html>

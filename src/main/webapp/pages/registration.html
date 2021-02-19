@@ -6,23 +6,41 @@
     <title>Registration</title>
 </head>
 <body>
-<form action="#" th:action="@{registration}" th:object="${ModelAttribute}" method="post">
-    <label>Name</label>
-    <br>
-    <input type="text" th:field="*{name}" />
-    <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
-    <br>
-    <label>Login</label>
-    <br>
-    <input type="text" th:field="*{login}" />
-    <p th:if="${#fields.hasErrors('login')}" th:errors="*{login}"></p><br>
-    <label>Password</label>
-    <br>
-    <input type="password" th:field="*{password}" />
-    <p th:if="${#fields.hasErrors('login')}" th:errors="*{password}"></p>
-    <br>
-    <br>
-    <button>Sing up</button>
-</form>
+<html th:include="_header"/>
+<div>
+    <div class="uk-position-medium uk-position-center uk-overlay uk-overlay-default">
+        <h1 class="uk-text-uppercase" style="color: cadetblue">Registration</h1>
+    </div>
+    <div class="uk-position-medium uk-position-center-left uk-overlay uk-overlay-default">
+        <form action="#" th:action="@{registration}" th:object="${ModelAttribute}" method="post">
+            <div class="uk-margin">
+                <div class="uk-margin">
+                    <label class="uk-form-label">Name</label>
+                    <br>
+                    <input class="uk-input uk-form-width-medium" type="text" th:field="*{name}" />
+                </div>
+                <p class="uk-text-meta" th:if="${#fields.hasErrors('name')}" th:errors="*{name}" style="color: coral"></p>
+            </div>
+            <div class="uk-margin">
+                <div class="uk-margin">
+                    <label class="uk-form-label">Login</label>
+                    <br>
+                    <input class="uk-input uk-form-width-medium" type="text" th:field="*{login}" />
+                </div>
+                <p class="uk-text-meta" th:if="${#fields.hasErrors('login')}" th:errors="*{login}" style="color: coral"></p>
+            </div>
+
+            <div class="uk-margin">
+                <div class="uk-margin">
+                    <label class="uk-form-label">Password</label>
+                    <br>
+                    <input class="uk-input uk-form-width-medium" type="password" th:field="*{password}"/>
+                    <p class="uk-text-meta" th:if="${#fields.hasErrors('password')}" th:errors="*{password}" style="color: coral"></p>
+                </div>
+            </div>
+            <button class="uk-button uk-button-default">Sing up</button>
+        </form>
+    </div>
+</div>
 </body>
 </html>

@@ -55,11 +55,6 @@ public class Operation {
 
     @Override
     public String toString() {
-        return "Operation{" +
-                "fNum=" + fNum +
-                ", sNum=" + sNum +
-                ", operation=" + operation +
-                ", result=" + result +
-                '}';
+        return fNum+" + "+sNum+" = "+result;
     }
 }
