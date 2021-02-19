@@ -55,6 +55,6 @@ public class Operation {
 
     @Override
     public String toString() {
-        return fNum+" + "+sNum+" = "+result;
+        return fNum+" "+ operation+" "+sNum+" = "+result;
     }
 }

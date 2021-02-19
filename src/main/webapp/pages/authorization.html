@@ -7,28 +7,31 @@
 </head>
 <body>
 <html th:include="_header"/>
-<div class="uk-position-center uk-overlay uk-overlay-default">
-    <h3 style="color: cadetblue">Authorization</h3>
-    <form action="#" th:action="@{authorization}" th:object="${ModelAttribute}" method="post">
-        <div class="uk-margin">
-            <div class="uk-inline">
-                <span class="uk-form-icon" uk-icon="icon: user"></span>
-                <input class="uk-input" type="text" th:field="*{login}" />
-            </div>
+<div>
+    <div class="uk-position-medium uk-position-center-left uk-overlay uk-overlay-default">
+        <h1 class="uk-text-uppercase uk-text-light" style="color: cadetblue">Authorization</h1>
+    </div>
+    <div class="uk-position-medium uk-position-center uk-overlay uk-overlay-default">
+        <form action="#" th:action="@{authorization}" th:object="${ModelAttribute}" method="post">
+            <div class="uk-margin">
+                <div class="uk-inline">
+                    <span class="uk-form-icon" uk-icon="icon: user"></span>
+                    <input class="uk-input" type="text" th:field="*{login}" />
+                </div>
                 <p class="uk-text-meta" th:if="${#fields.hasErrors('login')}" th:errors="*{login}" style="color:coral"></p>
-        </div>
-
-        <div class="uk-margin">
-            <div class="uk-inline">
-                <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
-                <input class="uk-input" type="password" th:field="*{password}" />
             </div>
-                <p class="uk-text-meta" th:if="${#fields.hasErrors('password')}" th:errors="*{password}" style="color: coral"></p>
-        </div>
-        <button class="uk-button uk-button-default">Sing in</button>
-    </form>
-    <p th:text="${incorrectInput}" style="color: coral"></p>
-</div>
 
+            <div class="uk-margin">
+                <div class="uk-inline">
+                    <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
+                    <input class="uk-input" type="password" th:field="*{password}" />
+                </div>
+                <p class="uk-text-meta" th:if="${#fields.hasErrors('password')}" th:errors="*{password}" style="color: coral"></p>
+            </div>
+            <button class="uk-button uk-button-default">Sing in</button>
+        </form>
+        <p th:text="${incorrectInput}" style="color: coral"></p>
+    </div>
+</div>
 </body>
 </html>
